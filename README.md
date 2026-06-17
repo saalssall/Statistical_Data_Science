@@ -6,11 +6,8 @@ A collection of statistical analysis projects implemented in R, completed as par
 
 | File | Description |
 |------|-------------|
-| `Practical_Project.R` | Descriptive statistics analysis of the pension dataset — frequency tables, charts, measures of location/variation/distribution, and relationship analysis |
-| `Discussion_Project.R` | Empirical probability, joint analysis of student data, random vs non-random sampling, and confidence interval estimation |
-| `Project_2.R` | Data transformation, aggregation, and statistical analysis |
-| `TextMining.R` | Text preprocessing, tokenization, sentiment analysis, and pattern recognition |
-
+| `Project.R` | Descriptive statistics analysis of the pension dataset — frequency tables, charts, measures of location/variation/distribution, and relationship analysis |
+| `Exercises.R` | Empirical probability, joint analysis of student data, random vs non-random sampling, and confidence interval estimation | 
 ## Datasets
 
 | Dataset | Used In | Description |
