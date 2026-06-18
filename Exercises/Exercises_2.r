@@ -88,5 +88,20 @@ food_consumption %>%
          | co2_emmission > upper)
 
 
+# Probability
+amir_deals <- data.frame(
+  product = c("Product A", "Product B", "Product C", "Product D", "Product E",
+              "Product F", "Product G", "Product H", "Product I", "Product J", "Product N"),
+  n = c(23, 62, 15, 40, 5, 11, 2, 8, 7, 2, 3)
+)
 
+# Calculate probability of each product
+amir_deals |>
+  mutate(prob = n / sum(n))
+# Set random seed to 31
+set.seed(31)
+
+# Sample 5 deals without replacement
+amir_deals %>%
+  sample_n(5, prob = FALSE)
 
