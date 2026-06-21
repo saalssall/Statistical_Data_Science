@@ -258,7 +258,28 @@ pexp(4, rate = 1/2.5, lower.tail = FALSE)
 # Probability response takes 3-4 hours
 pexp(4, rate = 1/2.5) - pexp(3, rate = 1/2.5)
 
+#Correlation
+# Create a scatterplot of happiness_score vs. life_exp
+ggplot(world_happiness, aes(x = life_exp, y = happiness_score)) + geom_point()
 
+# Add a linear trendline to scatterplot
+ + geom_smooth(method = "lm", se = FALSE)
+# Correlation between life_exp and happiness_score
+cor(world_happiness$life_exp, world_happiness$happiness_score)
 
+# Scatterplot of gdp_per_cap and life_exp
+ggplot(world_happiness, aes(gdp_per_cap, life_exp)) +
+  geom_point()
 
+# Correlation between gdp_per_cap and life_exp
+cor(world_happiness$gdp_per_cap, world_happiness$life_exp)
+
+# Create log_gdp_per_cap column
+world_happiness <- world_happiness %>%
+  mutate(log_gdp_per_cap = log(gdp_per_cap))
+# Scatterplot of happiness_score vs. log_gdp_per_cap
+ggplot(world_happiness, aes(log_gdp_per_cap, happiness_score)) +
+  geom_point()
+# Calculate correlation
+cor(world_happiness$log_gdp_per_cap, world_happiness$happiness_score)
 
