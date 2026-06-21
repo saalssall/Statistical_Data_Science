@@ -288,3 +288,32 @@ cor(world_happiness$log_gdp_per_cap, world_happiness$happiness_score)
 dbinom(2, 10, 0.3)
 # Confirm your answer with a simulation using rbinom
 mean(rbinom(10000, 10, 0.3) == 2)
+
+# Calculate the probability that at least five coins are heads
+1 - pbinom(4, 10, 0.3)
+# Confirm your answer with a simulation of 10,000 trials
+mean(rbinom(10000, 10, 0.3)>=5)
+
+
+#Binomial probability 
+
+#What is the expected value of a binomial distribution where 25 coins are flipped, each having a 30% chance of heads?
+# Calculate the expected value using the exact formula
+flip = 25 * 0.3
+flip
+
+# Confirm with a simulation using rbinom
+flip <- rbinom(10000, 25, 0.3)
+mean(flip)
+
+
+
+
+
+
+
+
+
+
+
+
