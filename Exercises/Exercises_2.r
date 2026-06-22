@@ -359,7 +359,23 @@ probability_biased <- dbinom(11, 20, 0.75)
 # Calculate the posterior probability that the coin is fair
 probability_fair / (probability_biased + probability_fair)
 
+#A function for comparing two histograms
+compare_histograms <- function(var1, var2) {
+  par(mfrow = c(1, 2))
+  hist(var1, main = "Binomial", col = "blue", xlab = "")
+  hist(var2, main = "Poisson", col = "red", xlab = "")
+  par(mfrow = c(1, 1))
+}
+#Poisson probability
+# Draw a random sample of 100,000 from the Binomial(1000, .002) distribution
+binom_sample <- rbinom(100000, 1000, .002)
+# Draw a random sample of 100,000 from the Poisson approximation
+poisson_sample <-  rpois(100000, 2)
+# Compare the two distributions with the compare_histograms function
+compare_histograms(binom_sample, poisson_sample)
 
-
+#The two histograms should look nearly identical, 
+#which demonstrates that Poisson is a good approximation 
+#of Binomial when n is large and p is small.
 
 
