@@ -419,3 +419,12 @@ compare_histograms(replications, geom_sample)
 pgeom(4, .1) #41%
 # Find the probability the machine is still working on 20th day
 1- pgeom(19, .1) #12%
+
+#Modeling
+# Calculate the probability of machine working on day 1-30
+still_working <- 1 - pgeom(0:29, .1)
+# Plot the probability for days 1 to 30
+plot(1:30, still_working, type = "l", col = "blue",
+     xlab = "Day", ylab = "Probability Still Working",
+     main = "Machine Survival Probability Over 30 Days")
+
