@@ -378,4 +378,12 @@ compare_histograms(binom_sample, poisson_sample)
 #which demonstrates that Poisson is a good approximation 
 #of Binomial when n is large and p is small.
 
+# Simulate 100,000 draws from Poisson(2)
+mean = 2
+poisson_sample <- rpois(100000, mean)
 
+# Find the percentage of simulated values that are 0
+mean(poisson_sample == 0)
+
+# Use dpois to find the exact probability that a draw is 0
+dpois(0, 2)
