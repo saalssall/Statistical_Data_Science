@@ -1,5 +1,5 @@
 *.ipynb
-.ipynb_checkpoints
-.Rhistory" 
+.ipynb_checkpoints/
+.Rhistory
 .RData
-.DS_Store" 
+.DS_Store
