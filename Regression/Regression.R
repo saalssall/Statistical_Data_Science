@@ -7,6 +7,7 @@ install.packages("ggplot2")
 library(dplyr)
 library(ggplot2)
 library(readr)
+getwd()
 df <- read_csv("Data/telecom_churn.csv")
 head(df, 10)
 
@@ -49,4 +50,22 @@ mdl_charges_vs_tenure
 mdl_charges_vs_tenure_no_intercept <- lm(MonthlyCharges ~ tenure + 0, data = df)
 mdl_charges_vs_tenure_no_intercept
 
+
+# Create a tibble with tenure column from 0 to 72
+explanatory_data <- tibble(
+  tenure = 0:72
+)
+
+# Use mdl_charges_vs_tenure to predict with explanatory_data
+predict(mdl_charges_vs_tenure, explanatory_data)
+
+prediction_data <- explanatory_data %>%
+  mutate(MonthlyCharges = predict(mdl_charges_vs_tenure, explanatory_data))
+
+# Add to the plot
+ggplot(df, aes(tenure, MonthlyCharges)) +
+  geom_point(color = "blue") +
+  geom_smooth(method = "lm", se = FALSE) +
+  # Add a point layer of prediction data, colored yellow
+  geom_point(data = prediction_data, color = "yellow")
 
