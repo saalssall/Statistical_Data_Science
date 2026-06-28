@@ -75,3 +75,21 @@ fitted(mdl_charges_vs_tenure)
 residuals(mdl_charges_vs_tenure)
 summary(mdl_charges_vs_tenure)
 
+# Get the coefficients of mdl_charges_vs_tenure
+coeffs <- coefficients(mdl_charges_vs_tenure)
+
+# Get the intercept
+intercept <- coeffs[1]
+
+# Get the slope
+slope <- coeffs[2]
+
+explanatory_data %>%
+  mutate(
+    # Manually calculate the predictions
+    MonthlyCharges = intercept + slope * tenure
+  )
+
+# Compare to the results from predict()
+predict(mdl_charges_vs_tenure, explanatory_data)
+
